@@ -1,0 +1,4 @@
+flask
+psycopg2
+swagger_ui
+openapi_schema_pydantic
