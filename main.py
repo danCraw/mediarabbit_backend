@@ -61,4 +61,4 @@ def delete_customer():
 
 if __name__ == '__main__':
     generate_dock(app)
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
