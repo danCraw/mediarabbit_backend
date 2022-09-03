@@ -17,7 +17,7 @@ def add_customer():
         return e
 
     cur = conn.cursor()
-    cur.execute('''INSERT INTO customer (email, phone, name, bid_type)
+    cur.execute('''INSERT INTO customers (email, phone, name, bid_type)
                    VALUES (%s, %s, %s, %s);''', (customer.email, customer.phone,
                                                 customer.name, customer.bid_type))
     conn.commit()
@@ -28,7 +28,7 @@ def add_customer():
 @app.route('/api/get_customers', methods=['GET'])
 def get_customers():
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-    cur.execute('SELECT * FROM customer;')
+    cur.execute('SELECT * FROM customers;')
     response = []
     for c in cur.fetchall():
         response.append(dict(c))
@@ -39,21 +39,21 @@ def get_customers():
 @app.route('/api/get_customer/<id>', methods=['GET'])
 def get_customer_by_id(id: int):
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-    cur.execute('''SELECT * FROM customer WHERE id = %s;''', id)
+    cur.execute('''SELECT * FROM customers WHERE id = %s;''', id)
     return jsonify(cur.fetchone()), 200
 
 
 @app.route('/api/get_customer/<phone>', methods=['GET'])
 def get_customer_by_phone(phone: str):
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-    cur.execute('''SELECT * FROM customer WHERE phone = %s;''', phone)
+    cur.execute('''SELECT * FROM customers WHERE phone = %s;''', phone)
     return jsonify(cur.fetchone()), 200
 
 
 @app.route('/api/delete_customer', methods=['DELETE'])
 def delete_customer():
     cur = conn.cursor()
-    cur.execute('''DELETE FROM customer WHERE id = %s;''', request.get_json()['id'])
+    cur.execute('''DELETE FROM customers WHERE id = %s;''', request.get_json()['id'])
     conn.commit()
     cur.close()
     return 'customer deleted', 200
