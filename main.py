@@ -7,6 +7,7 @@ from models import Customer
 from config import conn
 
 app = Flask(__name__, static_url_path='')
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 @app.route('/api/save_customer', methods=['POST'])
