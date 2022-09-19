@@ -2,8 +2,6 @@ from dataclasses import dataclass
 
 from telebot import TeleBot
 
-from main import *
-
 
 @dataclass
 class MyBot:
@@ -27,8 +25,3 @@ class MyBot:
             self.chats.remove(user_id)
         except ValueError:
             print('user not found')
-
-    def get_all_orders(self):
-        print(get_customers)
-        for customer in get_customers():
-            self.send_message(customer)
