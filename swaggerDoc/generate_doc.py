@@ -2,7 +2,7 @@ from openapi_schema_pydantic.v3.v3_0_3 import OpenAPI
 from openapi_schema_pydantic.v3.v3_0_3.util import construct_open_api_with_schema_class
 from swagger_ui import api_doc
 
-from SwaggerDoc.swaggerApiSchema import HANDWRITTEN_METHODS_MAP
+from swaggerDoc.swaggerApiSchema import HANDWRITTEN_METHODS_MAP
 
 
 def generate_open_api_json(paths: dict) -> str:

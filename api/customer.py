@@ -1,8 +1,8 @@
 import psycopg2
 from daiquiri import getLogger
 from main import app, bot
-from models import Customer
-from connection import conn
+from customer import Customer
+from dataBase.connection import conn
 from openpyxl.cell.cell import TYPE_ERROR
 from psycopg2.errorcodes import UNIQUE_VIOLATION, UNDEFINED_TABLE
 from flask import jsonify, request, Response

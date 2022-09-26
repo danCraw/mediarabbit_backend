@@ -1,11 +1,11 @@
 import os
 from flask import Flask
 from flask_cors import CORS
-from SwaggerDoc.generate_doc import generate_dock
+from swaggerDoc.generate_doc import generate_dock
 
 from dotenv import load_dotenv
 
-from TelegramBot.bot import MyBot
+from telegramBot.bot import MyBot
 
 load_dotenv()
 
