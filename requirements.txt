@@ -20,4 +20,5 @@ Werkzeug==2.1.2
 flask_cors
 python-dotenv
 pyTelegramBotAPI
+daiquiri
 
